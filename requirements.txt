@@ -5,3 +5,4 @@ itsdangerous==2.1.2
 click==8.1.7
 python-dateutil==2.8.2
 MarkupSafe==2.1.5
+gunicorn==21.2.0
