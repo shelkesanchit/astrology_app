@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Your Horoscope Results{% endblock %}
+
+{% block content %}
+<div class="result-container">
+    <h1>Horoscope for {{ name }}</h1>
+    
+    <div class="zodiac-info">
+        <h2>Your Zodiac Sign: {{ horoscope.western.sign }}</h2>
+        <p>You are a {{ birth_period }}!</p>
+        
+        <div class="characteristics">
+            <h3>Characteristics</h3>
+            <p><strong>Element:</strong> {{ horoscope.western.element }}</p>
+            <p><strong>Quality:</strong> {{ horoscope.western.quality }}</p>
+            <p><strong>Ruling Planet:</strong> {{ horoscope.western.ruler }}</p>
+            <p><strong>Key Traits:</strong> {{ horoscope.western.traits|join(", ") }}</p>
+            <p><strong>Favorable Times:</strong> {{ horoscope.western.favorable_times|join(", ") }}</p>
+        </div>
+        
+        <div class="predictions">
+            <h3>Predictions</h3>
+            <p><strong>Daily:</strong> {{ horoscope.western.predictions.daily }}</p>
+            <p><strong>Weekly:</strong> {{ horoscope.western.predictions.weekly }}</p>
+            <p><strong>Monthly:</strong> {{ horoscope.western.predictions.monthly }}</p>
+            <p><strong>Yearly:</strong> {{ horoscope.western.predictions.yearly }}</p>
+        </div>
+        
+        <div class="lucky-elements">
+            <h3>Lucky Elements</h3>
+            <p><strong>Colors:</strong> {{ horoscope.lucky.colors|join(", ") }}</p>
+            <p><strong>Number:</strong> {{ horoscope.lucky.number }}</p>
+            <p><strong>Days:</strong> {{ horoscope.lucky.days|join(", ") }}</p>
+        </div>
+    </div>
+    
+    <a href="{{ url_for('index') }}" class="button">Calculate Another Horoscope</a>
+</div>
+{% endblock %}
